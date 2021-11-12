@@ -1,8 +1,11 @@
 const request = require('request');
 const SEARCH_BREEDS_URL = 'https://api.thecatapi.com/v1/breeds/search';
 
-const fetchBreedDescription = (query, callback) => {
-  request(SEARCH_BREEDS_URL + '?q=' + query, (err, res, body) => {
+//Retrieve a description for the first breed found for search query
+//Callback will receive two arguments: error, description
+//The endpoint argument is optional and allows to specifiy the API endpoint
+const fetchBreedDescription = (query, callback, endpoint) => {
+  request(endpoint || SEARCH_BREEDS_URL + '?q=' + query, (err, res, body) => {
     if (!err) {
       const data = JSON.parse(body); //Array expected
       if (data.length > 0) {

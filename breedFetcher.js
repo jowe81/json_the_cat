@@ -1,4 +1,3 @@
-const { type } = require('os');
 const request = require('request');
 const SEARCH_BREEDS_URL = 'https://api.thecatapi.com/v1/breeds/search';
 

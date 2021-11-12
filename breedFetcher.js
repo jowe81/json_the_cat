@@ -13,4 +13,4 @@ const searchBreeds = (query, endpoint) => {
   });
 };
 
-searchBreeds('siberian', SEARCH_BREEDS_URL);
+searchBreeds(process.argv[2] || 'siberian', SEARCH_BREEDS_URL);

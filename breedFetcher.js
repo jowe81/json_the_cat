@@ -19,31 +19,4 @@ const fetchBreedDescription = (query, callback) => {
   });
 };
 
-module.exports = fetchBreedDescription;
-
-/*
-const searchBreeds = (query, endpoint) => {
-  request(endpoint + '?q=' + query, (err, res, body) => {
-    if (!err) {
-      const data = JSON.parse(body); //Array expected
-      if (data.length > 0) {
-        //Print description for each breed returned
-        for (let breed of data) {
-          console.log(breed.description);
-        }
-      } else {
-        //Nothing returned - not found or no query provided
-        if (query) {
-          console.log(`Your query "${query}" did not return any results. Misspelled it?`);
-        } else {
-          console.log(`Please provide a query string to search for - for example "siberian".`);
-        }
-      }
-    } else {
-      console.log(`An error occurred while trying to access ${SEARCH_BREEDS_URL}. \n  -> "${err}"`);
-    }
-  });
-};
-
-searchBreeds(process.argv[2], SEARCH_BREEDS_URL);
-*/
+module.exports = { fetchBreedDescription };

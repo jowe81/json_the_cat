@@ -18,6 +18,8 @@ const searchBreeds = (query, endpoint) => {
           console.log(`Please provide a query string to search for - for example "siberian".`);
         }
       }
+    } else {
+      console.log(`An error occurred while trying to access ${SEARCH_BREEDS_URL}. \n  -> "${err}"`);
     }
   });
 };

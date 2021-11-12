@@ -12,11 +12,26 @@ describe('fetchBreedDescription', () => {
     });
   });
 
-  it('returns an empty description if the breed was not found or no query string was provided', (done) => {
+  it('returns an empty description if the breed was not found', (done) => {
+    fetchBreedDescription('aweirdbreed', (err, desc) => {
+      assert.isEmpty(desc);
+      done();
+    });
+  });
+  
+  it('returns an empty description if no query string was provided', (done) => {
     fetchBreedDescription(undefined, (err, desc) => {
       assert.isEmpty(desc);
       done();
     });
+  });
+
+  it('returns an error if the API request fails', (done) => {
+    const faultyUrl = 'https://api.thecaaaaatapi.com/v1/breeds/search';
+    fetchBreedDescription(undefined, (err, desc) => {
+      assert.isNotEmpty(err);
+      done();
+    }, faultyUrl);
   });
 
 });
